@@ -5,13 +5,14 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
 	
-	public static final String FICHERO_DESORDENADO="scr/boletin1/ejercicio6/NumeroDesordenados";
-	public static final String FICHERO_ORDENADO="scr/boletin1/ejercicio6/NumerosOrdenados";
+	public static final String FICHERO_DESORDENADO="src/boletin1/ejercicio6/NumeroDesordenados.txt";
+	public static final String FICHERO_ORDENADO="src/boletin1/ejercicio6/NumerosOrdenados.txt";
 
 	public static void main(String[] args) {
 		
@@ -29,8 +30,19 @@ public class Principal {
 								
 				
 			}
+			Collections.sort(lista);
 			
 			BufferedWriter bw= new BufferedWriter(new FileWriter(FICHERO_ORDENADO));
+			
+			for(int i= 0 ; i<lista.size() ; i++) {
+				
+				num=lista.get(i);
+				
+				bw.write(String.valueOf(num));
+				
+				bw.flush();
+				
+			}
 			
 			
 			
